@@ -1,0 +1,336 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap');
+
+:root {
+	--primary-color: #1e90ff;
+	--secondary-color: #c1e6f8;
+	--mid-gray: #898989;
+	--background-color: #f0f0f0;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Rubik', arial, sans-serif;
+	position: relative;
+	width: fit-content;
+	height: fit-content;
+}
+#grid-container,
+#text-container {
+	display: grid;
+	position: absolute;
+	grid-template-columns: repeat(5, 200px); /* 5 columns of 200px each */
+	grid-template-rows: repeat(5, 150px); /* 5 rows of 150px each */
+	width: 100%;
+	height: 834px;
+}
+
+#openButton {
+	position: absolute;
+	left: calc(1000px + 2em); /* 1000px is the width of the grid plus 2em for padding */
+	top: 2em;
+	z-index: 1;
+	padding: 12px 24px;
+	color: #fff;
+    font-family: inherit;
+	border: none;
+	border-radius: 15px;
+	font-size: 16px;
+	cursor: pointer;
+	text-transform: uppercase;
+	font-weight: bold;
+	letter-spacing: 1px;
+	transition: all 0.3s ease;
+	background-color: var(--secondary-color);
+}
+
+#openButton:hover {
+	background-color: var(--primary-color);
+}
+
+.modal {
+	display: none; /* hidden by default */
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.4); /* dim background */
+}
+
+.modal-text {
+	background-color: var(--background-color);
+	margin: 15% auto;
+	padding: 20px;
+	border-radius: 8px;
+	width: 80%;
+	max-width: 500px;
+}
+
+.close {
+	color: var(--secondary-color);
+	font-size: 28px;
+	font-weight: bold;
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+	color: var(--primary-color);
+	text-decoration: none;
+}
+
+.color-box {
+    width: 8ch;
+    aspect-ratio: 1; /* square */
+    display: block;
+    border-radius: 15px;
+    align-content: center;
+    border: black 1px solid;
+}
+
+.color-wrapper {
+    display: flex;
+    gap: 1em;
+    flex-direction: row;
+}
+
+.text-item {
+	width: 100%;
+	height: 100%;
+	color: var(--mid-gray); /* text color overlay on grid*/
+}
+
+.grid-item {
+	width: 200px;
+	height: 150px;
+	background-image: url("assets/spritesheet.png"); /* path to sprite sheet */
+	background-repeat: no-repeat;
+}
+
+/* Ignore just css sprite sheet code from https://spritegen.website-performance.org/ for positioning*/
+.sprite {
+	background-image: url(spritesheet.png);
+	background-repeat: no-repeat;
+	display: block;
+}
+
+.sprite-1 {
+	width: 200px;
+	height: 150px;
+	background-position: -5px -5px;
+}
+
+.sprite-10 {
+	width: 200px;
+	height: 150px;
+	background-position: -215px -5px;
+}
+
+.sprite-11 {
+	width: 200px;
+	height: 150px;
+	background-position: -425px -5px;
+}
+
+.sprite-12 {
+	width: 200px;
+	height: 150px;
+	background-position: -635px -5px;
+}
+
+.sprite-13 {
+	width: 200px;
+	height: 150px;
+	background-position: -845px -5px;
+}
+
+.sprite-14 {
+	width: 200px;
+	height: 150px;
+	background-position: -5px -165px;
+}
+
+.sprite-15 {
+	width: 200px;
+	height: 150px;
+	background-position: -215px -165px;
+}
+
+.sprite-16 {
+	width: 200px;
+	height: 150px;
+	background-position: -425px -165px;
+}
+
+.sprite-17 {
+	width: 200px;
+	height: 150px;
+	background-position: -635px -165px;
+}
+
+.sprite-18 {
+	width: 200px;
+	height: 150px;
+	background-position: -845px -165px;
+}
+
+.sprite-19 {
+	width: 200px;
+	height: 150px;
+	background-position: -5px -325px;
+}
+
+.sprite-2 {
+	width: 200px;
+	height: 150px;
+	background-position: -215px -325px;
+}
+
+.sprite-20 {
+	width: 200px;
+	height: 150px;
+	background-position: -425px -325px;
+}
+
+.sprite-21 {
+	width: 200px;
+	height: 150px;
+	background-position: -635px -325px;
+}
+
+.sprite-22 {
+	width: 200px;
+	height: 150px;
+	background-position: -845px -325px;
+}
+
+.sprite-23 {
+	width: 200px;
+	height: 150px;
+	background-position: -5px -485px;
+}
+
+.sprite-24 {
+	width: 200px;
+	height: 150px;
+	background-position: -215px -485px;
+}
+
+.sprite-25 {
+	width: 200px;
+	height: 150px;
+	background-position: -425px -485px;
+}
+
+.sprite-26 {
+	width: 200px;
+	height: 150px;
+	background-position: -635px -485px;
+}
+
+.sprite-27 {
+	width: 200px;
+	height: 150px;
+	background-position: -845px -485px;
+}
+
+.sprite-28 {
+	width: 200px;
+	height: 150px;
+	background-position: -5px -645px;
+}
+
+.sprite-29 {
+	width: 200px;
+	height: 150px;
+	background-position: -215px -645px;
+}
+
+.sprite-3 {
+	width: 200px;
+	height: 150px;
+	background-position: -425px -645px;
+}
+
+.sprite-30 {
+	width: 200px;
+	height: 150px;
+	background-position: -635px -645px;
+}
+
+.sprite-31 {
+	width: 200px;
+	height: 150px;
+	background-position: -845px -645px;
+}
+
+.sprite-32 {
+	width: 200px;
+	height: 150px;
+	background-position: -5px -805px;
+}
+
+.sprite-33 {
+	width: 200px;
+	height: 150px;
+	background-position: -215px -805px;
+}
+
+.sprite-34 {
+	width: 200px;
+	height: 150px;
+	background-position: -425px -805px;
+}
+
+.sprite-35 {
+	width: 200px;
+	height: 150px;
+	background-position: -635px -805px;
+}
+
+.sprite-36 {
+	width: 200px;
+	height: 150px;
+	background-position: -845px -805px;
+}
+
+.sprite-4 {
+	width: 200px;
+	height: 150px;
+	background-position: -1055px -5px;
+}
+
+.sprite-5 {
+	width: 200px;
+	height: 150px;
+	background-position: -1055px -165px;
+}
+
+.sprite-6 {
+	width: 200px;
+	height: 150px;
+	background-position: -1055px -325px;
+}
+
+.sprite-7 {
+	width: 200px;
+	height: 150px;
+	background-position: -1055px -485px;
+}
+
+.sprite-8 {
+	width: 200px;
+	height: 150px;
+	background-position: -1055px -645px;
+}
+
+.sprite-9 {
+	width: 200px;
+	height: 150px;
+	background-position: -1055px -805px;
+}
